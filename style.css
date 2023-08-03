@@ -1,0 +1,70 @@
+*{
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+header{
+    background-color: rgb(53, 178, 137);
+}
+
+h1{
+    color: blue;
+    padding: 20px;
+    
+
+}
+
+#addButton{
+    margin-left: 90%;
+    color: red;
+    font-size: 150%;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+table{
+    border: 3px solid black;
+    border-collapse: collapse;
+
+}
+th, td{
+    border: 3px solid black;
+    padding: 10px 90px;
+}
+
+#popUp {
+    position: absolute;
+    text-align: center;
+    left: 40%;
+    top: 0%;
+    /* transform: translate(-50%, -50%)scale(0.1); */
+    /* visibility: hidden; */
+    transition: transform 0.4s, top 0.4s;
+    
+}
+
+.openpopUp{
+    top: 30%;
+    /* transform: translate(-50%,-50%)scale(1); */
+    /* visibility: visible; */
+}
+#popUp form input{
+    margin-top: 10px;
+    border-radius: 70px;
+    padding: 10px;
+    background-color: rgb(164, 153, 157);
+}
+#cancel {
+    background-color: red;
+    padding: 10px;
+    border-radius: 50px;
+    margin-top: 10px;
+}
+#add{
+    background-color: green;
+    padding: 10px;
+    border-radius: 50px;
+    margin-top: 10px;
+}
+

@@ -1,0 +1,25 @@
+{
+  "stock": [
+    {
+      "id": 1,
+      "item": "panty",
+      "quantity": 5,
+      "BuyingPrice": 150,
+      "SellingPrice": 200
+    },
+    {
+      "id": "2",
+      "item": "boxer",
+      "quantity": "3",
+      "BuyingPrice": "200",
+      "SellingPrice": "250"
+    },
+    {
+      "id": "3",
+      "item": "Shirt",
+      "quantity": "7",
+      "BuyingPrice": "500",
+      "SellingPrice": "700"
+    }
+  ]
+}
