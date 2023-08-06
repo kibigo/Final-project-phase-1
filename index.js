@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function(e){
             </tr>
         `
         const editIcon = newRow.querySelector(".editIcon");
+        
         editIcon.addEventListener('click', function(){
             popUp.style.visibility = 'visible';
         })
