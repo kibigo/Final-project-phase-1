@@ -71,12 +71,40 @@ document.addEventListener('DOMContentLoaded', function(e){
                 <td>${stock.quantity}</td>
                 <td>${stock.BuyingPrice}</td>
                 <td>${stock.SellingPrice}</td>
+                <td><i class="fa fa-pencil-alt editIcon"aria-hidden="true"></i></td>
+                <td><i class="fa-solid fa-trash-alt deleteIcon"></i></td>
             </tr>
         `
+        const editIcon = newRow.querySelector(".editIcon");
+        editIcon.addEventListener('click', function(){
+            popUp.style.visibility = 'visible';
+        })
+
+        const deleteIcon = newRow.querySelector(".deleteIcon");
+        deleteIcon.addEventListener('click', ()=> {deleteButton(stock.id)});
         table.appendChild(newRow);
     }
 
+// creating a delete function
+
+    function deleteButton (id){
+        fetch("http://localhost:3000/stock"+`/${id}`,{
+            method:'DELETE',
+            headers:{
+                "Content-Type":"application/json"
+            }
+        })
+        .then(response => response.json())
+        .then(data => data)
+    }
+
+
+
+
+    
     fetch(" http://localhost:3000/stock")
     .then(response => response.json())
     .then(data => data.forEach(stock => addTable(stock)))
     .catch(error => console.log("This is due to",error))
+
+

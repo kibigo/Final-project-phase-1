@@ -38,33 +38,44 @@ th, td{
     text-align: center;
     left: 40%;
     top: 0%;
-    /* transform: translate(-50%, -50%)scale(0.1); */
-    /* visibility: hidden; */
     transition: transform 0.4s, top 0.4s;
     
 }
 
 .openpopUp{
     top: 30%;
-    /* transform: translate(-50%,-50%)scale(1); */
-    /* visibility: visible; */
 }
-#popUp form input{
-    margin-top: 10px;
-    border-radius: 70px;
-    padding: 10px;
-    background-color: rgb(164, 153, 157);
-}
+
 #cancel {
     background-color: red;
     padding: 10px;
-    border-radius: 50px;
+    width: 30%;
+    border-radius: 10px;
     margin-top: 10px;
 }
 #add{
     background-color: green;
+    width: 30%;
     padding: 10px;
-    border-radius: 50px;
-    margin-top: 10px;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+form{
+    border: 1px solid black;
+    width: 150%;
+    height: 120%;
+    background-color: darkgray;
+    border-radius: 10px;
+    padding: 10px;
+
+    
+}
+form input{
+    margin-top: 30px;
+    background-color: beige;
+    padding: 10px;
+    border-radius: 8px;
+
 }
 
