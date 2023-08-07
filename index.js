@@ -105,7 +105,9 @@ document.addEventListener('DOMContentLoaded', function(e){
     
     fetch(" http://localhost:3000/stock")
     .then(response => response.json())
-    .then(data => data.forEach(stock => addTable(stock)))
+    .then(data => {
+        data.sort((a,b) => a.id.localeCompare(b.id))
+        data.forEach(stock => addTable(stock))})
     .catch(error => console.log("This is due to",error))
 
 

@@ -1,18 +1,25 @@
 {
   "stock": [
     {
-      "id": "2",
-      "item": "Shirt",
-      "quantity": "8",
-      "BuyingPrice": "300",
-      "SellingPrice": "700"
-    },
-    {
       "id": "1",
       "item": "boxer",
       "quantity": "6",
       "BuyingPrice": "200",
       "SellingPrice": "300"
+    },
+    {
+      "id": "3",
+      "item": "panty",
+      "quantity": "10",
+      "BuyingPrice": "100",
+      "SellingPrice": "150"
+    },
+    {
+      "id": "2",
+      "item": "Shirt",
+      "quantity": "5",
+      "BuyingPrice": "140",
+      "SellingPrice": "200"
     }
   ]
 }
