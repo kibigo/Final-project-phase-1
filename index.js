@@ -9,7 +9,24 @@ const addItemBtn = document.getElementById("add");
 
 const table = document.getElementById("table");
 
+const formPop = (receiveData) => {
+    const IDD = document.getElementById("id");
+    const itemD = document.getElementById("item");
+    const quantityD = document.getElementById("Quantity");
+    const buyingD = document.getElementById("buying");
+    const sellingD = document.getElementById("selling");
 
+    IDD.value = receiveData.id;
+    itemD.value = receiveData.item;
+    quantityD.value = receiveData.quantity;
+    buyingD.value = receiveData.BuyingPrice;
+    sellingD.value = receiveData.SellingPrice;
+
+    visibleForm();
+
+}
+
+const visibleForm = () => {popUp.style.visibility = 'visible';}
 
 document.addEventListener('DOMContentLoaded', function(e){
     e.preventDefault();
@@ -33,11 +50,11 @@ document.addEventListener('DOMContentLoaded', function(e){
 
     form.addEventListener('submit', function(event){
         event.preventDefault();
-        const ID = document.getElementById("id").value;
-        const item = document.getElementById("item").value;
-        const quantity = document.getElementById("Quantity").value;
-        const buying = document.getElementById("buying").value;
-        const selling = document.getElementById("selling").value;
+        const ID = document.getElementById("id");
+        const item = document.getElementById("item");
+        const quantity = document.getElementById("Quantity");
+        const buying = document.getElementById("buying");
+        const selling = document.getElementById("selling");
 
 
 
@@ -78,13 +95,22 @@ document.addEventListener('DOMContentLoaded', function(e){
         const editIcon = newRow.querySelector(".editIcon");
         
         editIcon.addEventListener('click', function(){
+            
             popUp.style.visibility = 'visible';
+            fetchDataToUpdate(stock.id);
         })
 
         const deleteIcon = newRow.querySelector(".deleteIcon");
         deleteIcon.addEventListener('click', ()=> {deleteButton(stock.id)});
         table.appendChild(newRow);
     }
+
+    fetch(" http://localhost:3000/stock")
+    .then(response => response.json())
+    .then(data => {
+        data.sort((a,b) => a.id.localeCompare(b.id))
+        data.forEach(stock => addTable(stock))})
+    .catch(error => console.log("This is due to",error))
 
 // creating a delete function
 
@@ -99,15 +125,30 @@ document.addEventListener('DOMContentLoaded', function(e){
         .then(data => data)
     }
 
+//creating PUT request 
+// first get items to form
+
+let requiredData = null;
+
+const fetchDataToUpdate = async (updateDataId) => {
+    const baseUrl = "http://localhost:3000/stock" +`/${updateDataId}`;
+
+    const response = await fetch(baseUrl);
+    const displayData = await response.json();
+    requiredData = displayData;
+
+    console.log(displayData);
+    formPop(requiredData);
+}
+
+
+const updateStock = async () => {
+    
+}
 
 
 
     
-    fetch(" http://localhost:3000/stock")
-    .then(response => response.json())
-    .then(data => {
-        data.sort((a,b) => a.id.localeCompare(b.id))
-        data.forEach(stock => addTable(stock))})
-    .catch(error => console.log("This is due to",error))
+
 
 
