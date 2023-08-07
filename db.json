@@ -20,6 +20,13 @@
       "quantity": "5",
       "BuyingPrice": "140",
       "SellingPrice": "200"
+    },
+    {
+      "id": {},
+      "item": {},
+      "quantity": {},
+      "BuyingPrice": {},
+      "SellingPrice": {}
     }
   ]
 }

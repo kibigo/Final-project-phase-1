@@ -46,35 +46,37 @@ document.addEventListener('DOMContentLoaded', function(e){
 });
 
     //creating a POST Request
-    const form = document.getElementById("form");
 
-    form.addEventListener('submit', function(event){
-        event.preventDefault();
-        const ID = document.getElementById("id");
-        const item = document.getElementById("item");
-        const quantity = document.getElementById("Quantity");
-        const buying = document.getElementById("buying");
-        const selling = document.getElementById("selling");
+    function postData (){
 
+        
+            const ID = document.getElementById("id");
+            const item = document.getElementById("item");
+            const quantity = document.getElementById("Quantity");
+            const buying = document.getElementById("buying");
+            const selling = document.getElementById("selling");
+    
+    
+    
+            fetch("http://localhost:3000/stock",{
+                method:'POST',
+                body:JSON.stringify({
+                    id:ID,
+                    item:item,
+                    quantity:quantity,
+                    BuyingPrice:buying,
+                    SellingPrice:selling
+                }),
+                headers:{
+                    'Content-Type':'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => data)
+            .catch(error => console.log(error))
+        
+    }
 
-
-        fetch("http://localhost:3000/stock",{
-            method:'POST',
-            body:JSON.stringify({
-                id:ID,
-                item:item,
-                quantity:quantity,
-                BuyingPrice:buying,
-                SellingPrice:selling
-            }),
-            headers:{
-                'Content-Type':'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(data => data)
-        .catch(error => console.log(error))
-    })
 
     //creating a GET request
 
@@ -143,8 +145,47 @@ const fetchDataToUpdate = async (updateDataId) => {
 
 
 const updateStock = async () => {
-    
+    const IDDnew = document.getElementById("id").value;
+    const itemDnew = document.getElementById("item").value;
+    const quantityDnew = document.getElementById("Quantity").value;
+    const buyingDnew = document.getElementById("buying").value;
+    const sellingDnew = document.getElementById("selling").value;
+
+    const newData = {
+        id:IDDnew,
+        item:itemDnew,
+        quantity:quantityDnew,
+        BuyingPrice:buyingDnew,
+        SellingPrice:sellingDnew
+    }
+
+    const newUrl = "http://localhost:3000/stock" + `/${requiredData.id}`;
+
+    const putMethod = {
+        method: 'PUT',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(newData)
+    }
+
+    const response = await fetch(newUrl, putMethod);
+    const theResponseData = await response.json();
 }
+
+
+// const form = document.getElementById("form");
+
+
+const handleSubmit = () => {
+    if (requiredData){
+        updateStock();
+    }else{
+        postData();
+    }
+
+}
+addItemBtn.addEventListener('click', () => {handleSubmit});
 
 
 

@@ -61,7 +61,7 @@ th, td{
     margin-top: 30px;
 }
 
-form{
+#form{
     border: 1px solid black;
     width: 150%;
     height: 120%;
@@ -71,7 +71,7 @@ form{
 
     
 }
-form input{
+#form input{
     margin-top: 30px;
     background-color: beige;
     padding: 10px;
