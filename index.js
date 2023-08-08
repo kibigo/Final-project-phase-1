@@ -50,16 +50,19 @@ document.addEventListener('DOMContentLoaded', function(e){
     function postData (){
 
         
-            const ID = document.getElementById("id");
-            const item = document.getElementById("item");
-            const quantity = document.getElementById("Quantity");
-            const buying = document.getElementById("buying");
-            const selling = document.getElementById("selling");
+            const ID = document.getElementById("id").value;
+            const item = document.getElementById("item").value;
+            const quantity = document.getElementById("Quantity").value;
+            const buying = document.getElementById("buying").value;
+            const selling = document.getElementById("selling").value;
     
-    
+            
     
             fetch("http://localhost:3000/stock",{
                 method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
                 body:JSON.stringify({
                     id:ID,
                     item:item,
@@ -67,16 +70,14 @@ document.addEventListener('DOMContentLoaded', function(e){
                     BuyingPrice:buying,
                     SellingPrice:selling
                 }),
-                headers:{
-                    'Content-Type':'application/json'
-                }
+              
             })
             .then(response => response.json())
             .then(data => data)
             .catch(error => console.log(error))
         
     }
-
+    
 
     //creating a GET request
 
@@ -106,13 +107,16 @@ document.addEventListener('DOMContentLoaded', function(e){
         deleteIcon.addEventListener('click', ()=> {deleteButton(stock.id)});
         table.appendChild(newRow);
     }
-
+    
+    const displayStock = () => {
     fetch(" http://localhost:3000/stock")
     .then(response => response.json())
     .then(data => {
         data.sort((a,b) => a.id.localeCompare(b.id))
         data.forEach(stock => addTable(stock))})
     .catch(error => console.log("This is due to",error))
+    }
+
 
 // creating a delete function
 
@@ -174,18 +178,26 @@ const updateStock = async () => {
 }
 
 
-// const form = document.getElementById("form");
+
 
 
 const handleSubmit = () => {
     if (requiredData){
         updateStock();
+        
     }else{
         postData();
+        
     }
 
 }
-addItemBtn.addEventListener('click', () => {handleSubmit});
+
+const initializeProject = () => {
+    displayStock();
+    addItemBtn.addEventListener('click', () => {handleSubmit()});
+}
+
+initializeProject();
 
 
 

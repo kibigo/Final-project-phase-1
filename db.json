@@ -3,30 +3,23 @@
     {
       "id": "1",
       "item": "boxer",
-      "quantity": "6",
-      "BuyingPrice": "200",
-      "SellingPrice": "300"
-    },
-    {
-      "id": "3",
-      "item": "panty",
-      "quantity": "10",
-      "BuyingPrice": "100",
-      "SellingPrice": "150"
+      "quantity": "60",
+      "BuyingPrice": "2000",
+      "SellingPrice": "3000"
     },
     {
       "id": "2",
       "item": "Shirt",
-      "quantity": "5",
-      "BuyingPrice": "140",
-      "SellingPrice": "200"
+      "quantity": "10",
+      "BuyingPrice": "1400",
+      "SellingPrice": "2000"
     },
     {
-      "id": {},
-      "item": {},
-      "quantity": {},
-      "BuyingPrice": {},
-      "SellingPrice": {}
+      "id": "3",
+      "item": "KEG",
+      "quantity": "17",
+      "BuyingPrice": "25000",
+      "SellingPrice": "45000"
     }
   ]
 }
